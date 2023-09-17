@@ -6,7 +6,8 @@ module.exports = {
     "extends": [
         "plugin:react/recommended",
         "standard-with-typescript",
-        "plugin:react/jsx-runtime"
+        "plugin:react/jsx-runtime",
+        "plugin:prettier/recommended",
     ],
     "overrides": [
     ],
@@ -37,22 +38,15 @@ module.exports = {
         'react/jsx-props-no-spreading': 'off',
         'jsx-a11y/no-noninteractive-element-interactions': 'off',
         'react/function-component-definition': [
-        2,
-        {
-            namedComponents: 'arrow-function',
-            unnamedComponents: 'arrow-function',
-        },
+            2,
+            {
+                namedComponents: 'arrow-function',
+                unnamedComponents: 'arrow-function',
+            },
         ],
-        'max-len': [
-        2,
-        550,
-        ],
+        'max-len': [2,550,],
         'no-multiple-empty-lines': [
-        'error',
-        {
-            max: 1,
-            maxEOF: 1,
-        },
+        'error', { max: 1,maxEOF: 1,},
         ],
         'no-underscore-dangle': [
         'error',
