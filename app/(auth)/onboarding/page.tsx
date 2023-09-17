@@ -4,11 +4,13 @@ import { currentUser } from '@clerk/nextjs'
 async function Page () {
   const user = await currentUser()
 
+  // userInfo is used to fetch user data other than the user who is logged in. It will come from database.
   const userInfo = {}
 
+  // We are keeping track of our own user data in our database. Other than what clerk provides.. So we need to keep track of it... and fetch userData will come from database.
   const userData = {
-    id: user?.id,
-    objectId: userInfo?._id,
+    id: user?.id,           // clerk id
+    objectId: userInfo?._id, // database id
     username: userInfo?.username || user?.username,
     name: userInfo?.name || user?.firstName || '',
     bio: userInfo?.bio || '',
@@ -17,7 +19,7 @@ async function Page () {
   }
 
   return (
-        <main className="mx-auto flex max-w-3xl flex-col justify-start px-10 py-20 bg-black">
+        <main className="mx-auto flex max-w-3xl flex-col justify-start px-10 py-20">
             <h1 className="head-text">
                 Onboarding
             </h1>
