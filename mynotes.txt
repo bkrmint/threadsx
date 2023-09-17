@@ -1,0 +1,55 @@
+Package.json dev dependencies.. 
+
+"eslint-config-airbnb": "^19.0.4",
+      "eslint-plugin-jsx-a11y": "^6.5.1",
+      "eslint-plugin-react-hooks": "^4.3.0",
+
+
+
+https://typescript-eslint.io/rules/explicit-function-return-type/
+
+nodeHeaders {
+  'cache-control': 'public, max-age=0, must-revalidate',
+  connection: 'keep-alive',
+  'content-type': 'image/x-icon',
+  date: 'Tue, 12 Sep 2023 04:28:06 GMT',
+  'keep-alive': 'timeout=5',
+  'transfer-encoding': 'chunked',
+  vary: 'RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Url'
+}
+
+MongoDB - database
+rmint_community
+3cPLA92Zik1eOC7K
+
+MongoDB - user
+rmint_community_users
+DGzASgoEhLK1LtUT
+
+Project - Community 
+
+balaji_testing
+w2g5BVR9UtbgoEIG
+
+
+<>
+      // <section className="mt-9 flex flex-col gap-10">
+        {result?.threads.length === 0 ? (
+          <p className='no-result'> No threads found</p>
+        ) : (
+          {result?.threads.map((thread) => (
+            <ThreadCard 
+              key={thread._id}
+              id={thread._id}
+              currentUserId={user?.id || ""}
+              parentId={thread.parentId}
+              author={thread.author}
+              community={thread.community}
+              createdAt={thread.createdAt}
+              comments={thread.children}
+            />
+          )}
+        )}
+      </>
+ 
+      // </section>
