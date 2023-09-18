@@ -11,7 +11,6 @@ import { usePathname, useRouter } from 'next/navigation'
 import { CommentValidation } from '@/lib/validations/thread'
 import Image from 'next/image'
 import { addCommentToThread } from '@/lib/actions/thread.actions'
-// import { createThread } from '@/lib/actions/thread.actions'
 
 interface Props {
   threadId: string

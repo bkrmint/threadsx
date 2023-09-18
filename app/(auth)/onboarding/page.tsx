@@ -1,20 +1,24 @@
 import AccountProfile from '@/components/forms/AccountProfile'
+import { fetchUser } from '@/lib/actions/user.actions'
 import { currentUser } from '@clerk/nextjs'
+import { redirect } from 'next/navigation'
 
 async function Page () {
   const user = await currentUser()
+  if (!user) return null
 
   // userInfo is used to fetch user data other than the user who is logged in. It will come from database.
-  const userInfo = {}
+  const userInfo = await fetchUser(user.id) 
+  if (userInfo?.onboarded) redirect('/')
 
   // We are keeping track of our own user data in our database. Other than what clerk provides.. So we need to keep track of it... and fetch userData will come from database.
   const userData = {
     id: user?.id,           // clerk id
     objectId: userInfo?._id, // database id
-    username: userInfo?.username || user?.username,
-    name: userInfo?.name || user?.firstName || '',
-    bio: userInfo?.bio || '',
-    image: userInfo?.image || user?.imageUrl
+    username: userInfo ? userInfo?.username : user?.username,
+    name: userInfo ? userInfo?.name : user?.firstName || '',
+    bio: userInfo ? userInfo?.bio : '',
+    image: userInfo ? userInfo?.image : user?.imageUrl
 
   }
 
